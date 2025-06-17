@@ -10,11 +10,11 @@ using Moq;
 
 namespace AuthService.Tests;
 
-public class JwtTokenGenerationTests
+public class LoginUseCaseTests
 {
     private readonly ILoginUseCase _loginUseCase;
 
-    public JwtTokenGenerationTests()
+    public LoginUseCaseTests()
     {
         var passwordOptionsMoq = new Mock<IOptions<PasswordOptions>>();
         passwordOptionsMoq.Setup(x => x.Value).Returns(new PasswordOptions()
