@@ -51,7 +51,7 @@ public static class ServiceCollectionExtensions
         sc.Configure<JwtTokenOptions>(configuration.GetSection("JwtTokenOptions"));
         sc.Configure<PasswordOptions>(configuration.GetSection("PasswordOptions"));
         sc.Configure<DatabaseOptions>(configuration.GetSection("DatabaseOptions"));
-        
+
         return sc;
     }
 
@@ -82,15 +82,15 @@ public static class ServiceCollectionExtensions
         sc.AddScoped<IPasswordCoder, PasswordCoder>();
         return sc;
     }
-    
+
     public static IServiceCollection AddUseCases(this IServiceCollection sc)
     {
         sc.AddScoped<ILoginUseCase, LoginUseCase>();
         sc.AddScoped<IRefreshTokenUseCase, RefreshTokenUseCase>();
-        
+
         return sc;
     }
-    
+
     public static IServiceCollection AddDatabaseMigrations(
         this IServiceCollection sc)
     {

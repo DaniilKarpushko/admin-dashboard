@@ -1,5 +1,4 @@
 using AuthService.Api.Extensions;
-using AuthService.Infrastructure.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +8,8 @@ builder.Services.AddCors(options =>
     {
         policy.WithOrigins(builder.Configuration["FrontendHost"])
             .AllowAnyHeader()
-            .AllowAnyMethod();
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
 

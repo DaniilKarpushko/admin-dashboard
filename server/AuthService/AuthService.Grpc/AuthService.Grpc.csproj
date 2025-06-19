@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FluentMigrator" Version="7.1.0" />
+        <PackageReference Include="FluentMigrator.Extensions.Postgres" Version="7.1.0" />
+        <PackageReference Include="FluentMigrator.Runner" Version="7.1.0" />
+        <PackageReference Include="Grpc.AspNetCore" Version="2.57.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.17" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Protobuf Protoroot="Protos" Include="Protos\login.proto" GrpcService="Server"/>
+        <Protobuf Protoroot="Protos" Include="Protos\refresh.proto" GrpcService="Server"/>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\AuthService.Infrastructure\AuthService.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>

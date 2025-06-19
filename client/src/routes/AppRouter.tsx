@@ -10,9 +10,7 @@ const AppRouter = () => {
             <Route
                 path="/dashboard"
                 element={
-                    <PrivateRoute>
-                        <DashboardPage />
-                    </PrivateRoute>
+                    <DashboardPage/>
                 }
             />
             <Route path="*" element={<Navigate to="/login"/>}/>

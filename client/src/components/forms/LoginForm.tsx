@@ -14,18 +14,16 @@ const LoginForm = () => {
             const response = await axios.post("http://localhost:5000/api/auth/login", {
                 email,
                 password,
+            }, {
+                withCredentials: true,
             });
 
             if (response.status === 200) {
                 const username = response.data.username;
                 const email = response.data.email;
-                const accessToken = response.data.accessToken;
-                const refreshToken = response.data.refreshToken;
 
                 localStorage.setItem('username', username);
                 localStorage.setItem('email', email);
-                localStorage.setItem('access_token', accessToken);
-                localStorage.setItem('refresh_token', refreshToken);
 
                 navigate('/dashboard');
             }

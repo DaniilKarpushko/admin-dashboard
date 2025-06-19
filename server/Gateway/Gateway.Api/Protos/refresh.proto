@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option csharp_namespace = "Gateway.Grpc";
+
+package refresh;
+
+service RefreshService {
+  rpc Refresh(RefreshRequest) returns (RefreshResponse);
+}
+
+message RefreshRequest {
+  string refresh_token = 1;
+}
+
+message RefreshResponse {
+  oneof response {
+    RefreshSuccess success = 1;
+    RefreshFailure failure = 2;
+  }
+}
+
+message RefreshSuccess {
+  string access_token = 1;
+  string refresh_token = 2;
+}
+
+message RefreshFailure {
+  int32 code = 1;
+  string message = 2;
+}
